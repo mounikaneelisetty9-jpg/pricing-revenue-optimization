@@ -1,4 +1,3 @@
-# app.py
 import streamlit as st
 import numpy as np
 import pandas as pd
@@ -8,7 +7,6 @@ st.set_page_config(page_title="Pricing & Revenue Optimization", layout="centered
 st.title("💰 Pricing & Revenue Optimization - Multi Product")
 st.write("Simulate pricing strategies and see revenue effects for multiple products.")
 
-# --- Inputs ---
 st.sidebar.header("Products")
 num_products = st.sidebar.number_input("Number of products", min_value=1, max_value=5, value=2, step=1)
 
@@ -21,7 +19,6 @@ for i in range(num_products):
     price = st.sidebar.slider(f"Price", min_value=0.0, max_value=100.0, step=0.5, key=f"price{i}")
     products.append({"name": name, "a": a, "b": b, "price": price})
 
-# --- Calculate revenues ---
 st.subheader("Product Revenue")
 total_revenue = 0
 revenue_data = []
@@ -38,7 +35,6 @@ for p in products:
     st.write(f"Revenue: ${revenue:.2f}")
     st.write(f"Optimal price: ${optimal_price:.2f}, Max revenue: ${optimal_revenue:.2f}")
     
-    # Store data for table
     revenue_data.append({
         "Product": p['name'],
         "Selected Price": p['price'],
@@ -48,7 +44,6 @@ for p in products:
         "Max Revenue": optimal_revenue
     })
 
-# --- Show table ---
 df = pd.DataFrame(revenue_data)
 st.subheader("Summary Table")
 st.dataframe(df)
@@ -56,7 +51,6 @@ st.dataframe(df)
 st.subheader("Total Revenue")
 st.write(f"💰 Total Revenue for all products: ${total_revenue:.2f}")
 
-# --- Plot revenue curves ---
 st.subheader("Revenue Curves")
 plt.figure(figsize=(8,5))
 for p in products:
