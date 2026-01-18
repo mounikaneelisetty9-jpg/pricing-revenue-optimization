@@ -4,7 +4,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 st.set_page_config(page_title="Pricing & Revenue Optimization", layout="centered")
-st.title("💰 Pricing & Revenue Optimization - Multi Product")
+st.title(" Pricing & Revenue Optimization - Multi Product")
 st.write("Simulate pricing strategies and see revenue effects for multiple products.")
 
 st.sidebar.header("Products")
@@ -49,7 +49,7 @@ st.subheader("Summary Table")
 st.dataframe(df)
 
 st.subheader("Total Revenue")
-st.write(f"💰 Total Revenue for all products: ${total_revenue:.2f}")
+st.write(f" Total Revenue for all products: ${total_revenue:.2f}")
 
 st.subheader("Revenue Curves")
 plt.figure(figsize=(8,5))
